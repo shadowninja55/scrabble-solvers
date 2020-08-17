@@ -7,7 +7,7 @@ def valid word, letters
     return true
 end
 
-def generate_words letters 
+def generate_words letters
     words = []
     f = File.open("dictionary.txt")
     contents = f.read
@@ -45,13 +45,14 @@ def display words
     result = ""
     wlen = words.length
     words.each_with_index do |word,i|
-        result += "#{wlen-i}. #{word}\n" 
+        result += "#{wlen-i}. #{word}\n"
     end
     return result
 end
 
 def main
-    letters = "abcdefg"
+    print "Letters: "
+    letters = gets
     words = generate_words letters
     words = sort_words words
     puts display words
