@@ -12,7 +12,7 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 4. Cython - `0.381 seconds`
 
-5. Python - `0.582 seconds`
+5. Python - `0.502 seconds`
 
 
 
