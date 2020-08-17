@@ -1,13 +1,10 @@
-import json
-
-def load_dictionary():
-    with open('dictionary.txt') as f:
-        return f.read().split('\n')
-
-def generate_words(letters, dictionary):
+def generate_words(letters):
     cdef str word
     cdef str letter
+
     new_words = []
+    with open('dictionary.txt') as f:
+        dictionary = f.read().split('\n')
 
     for word in dictionary:
         if all(word.count(letter) <= letters.count(letter) for letter in word):
@@ -29,7 +26,7 @@ def score(str word):
     cdef str c
     return sum(scores[c] for c in word)
 
-def sort(words, letters, dictionary):
+def sort(words, letters):
     return sorted(words, key=score, reverse=True)
 
 def display(words):
@@ -39,10 +36,9 @@ def display(words):
     return '\n'.join(words)
 
 def main():
-    dictionary = load_dictionary()
-    letters = input('Letters: ')
-    words = generate_words(letters, dictionary)
-    words = sort(words, letters, dictionary)
+    letters = 'abcdefg' # input('Letters: ')
+    words = generate_words(letters)
+    words = sort(words, letters)
     words = display(words)
     print(words)
     return 0
