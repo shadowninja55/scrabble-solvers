@@ -5,15 +5,10 @@
 #include <map>
 using namespace std;
 
-int count(string s, char c) {
-    return count(s.begin(), s.end(), c);
-}
-
 bool valid(string word, string letters) {
-    char c;
     for (int x = 0; x < word.size(); x++) {
-        c = word[x];
-        if (count(word, c) > count(letters, c)) {
+        char c = word[x];
+        if (count(word.begin(), word.end(), c) > count(letters.begin(), letters.end(), c)) {
             return false;
         }
     }
@@ -36,8 +31,9 @@ vector<string> generateWords(string letters) {
     return words;
 }
 
-int score(string word) {
-    map<char, int> scores;
+map<char, int> scores;
+
+void constructScores() {
     string letters = "abcdefghijklmnopqrstuvwxyz";
     int values[26] = {
         1, 3, 3, 2, 1, 4,
@@ -49,7 +45,9 @@ int score(string word) {
     for (int i = 0; i < 26; i++) {
         scores[letters[i]] = values[i];
     }
+}
 
+int score(string word) {
     int total = 0;
     for (int i = 0; i < word.size(); i++) {
         total += scores[word[i]];
@@ -81,6 +79,7 @@ int main() {
     cout << "Letters: ";
     cin >> letters;
     vector<string> words = generateWords(letters);
+    constructScores();
     words = sorted(words);
     string result = display(words);
     cout << result;
