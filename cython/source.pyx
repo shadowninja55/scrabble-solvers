@@ -36,7 +36,7 @@ def display(words):
     return '\n'.join(words)
 
 def main():
-    letters = 'abcdefg' # input('Letters: ')
+    letters = input('Letters: ')
     words = generate_words(letters)
     words = sort(words, letters)
     words = display(words)
