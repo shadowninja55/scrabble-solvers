@@ -6,9 +6,9 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 1. C++ - `0.072 seconds`
 
-2. Cython - `0.152 seconds`
+2. PHP - `0.095 seconds`
 
-3. PHP - `0.168 seconds`
+3. Cython - `0.152 seconds`
 
 4. Python - `0.212 seconds`
 
