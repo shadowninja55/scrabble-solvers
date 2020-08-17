@@ -6,13 +6,7 @@
 using namespace std;
 
 int count(string s, char c) {
-    int count = 0;
-    for (int i = 0; i < s.size(); i++) {
-        if (s[i] == c) {
-            count += 1;
-        }
-    }
-    return count;
+    return count(s.begin(), s.end(), c);
 }
 
 bool valid(string word, string letters) {
@@ -83,14 +77,14 @@ string display(vector<string> words) {
 }
 
 int main() {
-    string letters;
-    cout << "Letters: ";
-    cin >> letters;
+    string letters = "abcdefg";
+    //cout << "Letters: ";
+    //cin >> letters;
     vector<string> words = generateWords(letters);
     words = sorted(words);
     string result = display(words);
     cout << result;
 
-    system("pause");
+    //system("pause");
 	return 0;
 }
