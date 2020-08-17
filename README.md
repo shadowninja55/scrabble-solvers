@@ -19,17 +19,17 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 # Effort
 All languages are listed by the character count of their respective main code file, highest rank is least effort.
 
-1. Python `1009 characters`
+1. Python - `1009 characters`
 
-2. Cython `1101 characters`
+2. Cython - `1101 characters`
 
-3. Ruby `1167 characters`
+3. Ruby - `1167 characters`
 
-4. Node.js `1587 characters`
+4. Node.js - `1587 characters`
 
-5. PHP `1602 characters`
+5. PHP - `1602 characters`
 
-6. C++ `1784 characters`
+6. C++ - `1784 characters`
 
 
 
