@@ -77,14 +77,14 @@ string display(vector<string> words) {
 }
 
 int main() {
-    string letters = "abcdefg";
-    //cout << "Letters: ";
-    //cin >> letters;
+    string letters;
+    cout << "Letters: ";
+    cin >> letters;
     vector<string> words = generateWords(letters);
     words = sorted(words);
     string result = display(words);
     cout << result;
 
-    //system("pause");
+    system("pause");
 	return 0;
 }
