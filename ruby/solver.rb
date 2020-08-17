@@ -8,16 +8,16 @@ def valid word, letters
 end
 
 def generate_words letters 
-    new_words = []
+    words = []
     f = File.open("dictionary.txt")
     contents = f.read
-    words = contents.split "\n"
-    for word in words
+    dictionary = contents.split "\n"
+    for word in dictionary
         if valid(word, letters)
-            new_words.append word
+            words.append word
         end
     end
-    return new_words
+    return words
 end
 
 def score word
