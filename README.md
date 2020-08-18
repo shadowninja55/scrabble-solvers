@@ -5,10 +5,10 @@ An assortment of Scrabble solvers from different programming languages / extensi
 All tests were an average of 10 trials with the letters "abcdefg" used.
 
 1. C++ - `0.076 seconds`
-
-2. Java - `0.102 seconds`
-
-3. PHP - `0.141 seconds`
+  
+2. PHP - `0.099 seconds`
+  
+3. Java - `0.102 seconds`
 
 4. Node.js - `0.223 seconds`
 
