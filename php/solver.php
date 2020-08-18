@@ -61,7 +61,6 @@ function display($words) {
 }
 
 function main() {
-    ini_set('memory_limit', '400M');
     echo "\n";
     $letters = "abcdefg"; // readline("Letters: ");
     $words = generate_words($letters);
