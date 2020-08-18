@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <map>
 #include <algorithm>
 #include <fstream>
-#include <map>
 using namespace std;
 
 bool valid(string word, string letters) {
-    for (int x = 0; x < word.size(); x++) {
+    for (unsigned short x = 0; x < word.size(); x++) {
         char c = word[x];
         if (count(word.begin(), word.end(), c) > count(letters.begin(), letters.end(), c)) {
             return false;
@@ -48,8 +48,8 @@ void constructScores() {
 }
 
 int score(string word) {
-    int total = 0;
-    for (int i = 0; i < word.size(); i++) {
+    unsigned short total = 0;
+    for (unsigned short i = 0; i < word.size(); i++) {
         total += scores[word[i]];
     }
 
@@ -67,7 +67,7 @@ string display(vector<string> words) {
     string result;
     int index;
 
-    for (int i = words.size(); i > 0; i--) {
+    for (unsigned short i = words.size(); i > 0; i--) {
         index = words.size() - i;
         result += (to_string(i)  + ". " + words[index] + "\n");
     }
@@ -75,15 +75,15 @@ string display(vector<string> words) {
 }
 
 int main() {
-    string letters;
-    cout << "Letters: ";
-    cin >> letters;
+    string letters = "abcdefg";
+    //cout << "Letters: ";
+    //cin >> letters;
     vector<string> words = generateWords(letters);
     constructScores();
     words = sorted(words);
     string result = display(words);
     cout << result;
 
-    system("pause");
+    //system("pause");
 	return 0;
 }
