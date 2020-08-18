@@ -27,9 +27,9 @@ All languages are listed by the character count of their respective main code fi
 
 3. Ruby - `1167 characters`
 
-4. Node.js - `1587 characters`
+4. PHP - `1552 characters` 
 
-5. PHP - `1602 characters`
+5. Node.js - `1587 characters`
 
 6. C++ - `1784 characters`
 
