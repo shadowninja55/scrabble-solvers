@@ -43,7 +43,7 @@ def display(words):
     return result
 
 def main():
-    letters = 'abcdefg' # input('Letters: ')
+    letters = input('Letters: ')
     words = generate_words(letters)
     words = sort(words, letters)
     result = display(words)
