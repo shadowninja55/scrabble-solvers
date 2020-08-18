@@ -85,5 +85,5 @@ int main() {
     cout << result;
 
     system("pause");
-	return 0;
+    return 0;
 }
