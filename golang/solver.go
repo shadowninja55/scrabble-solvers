@@ -75,9 +75,9 @@ func displayWords() {
 }
 func main() {
     fmt.Print("Letters: ")
-    letters = fmt.Scanln()
+    fmt.Scanln(&letters)
     loadValidWords()
     sortWords()
     displayWords()
-    fmt.scanLn()
+    fmt.Scanln()
 }
