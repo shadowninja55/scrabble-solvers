@@ -74,7 +74,7 @@ func displayWords() {
     fmt.Println(result)
 }
 func main() {
-    fmt.Print("Letters: )
+    fmt.Print("Letters: ")
     letters = fmt.Scanln()
     loadValidWords()
     sortWords()
