@@ -62,9 +62,22 @@ func sortWords() {
 	})
 }
 
+func displayWords() {
+	result := ""
+	length := len(words)
+
+    for i := length; i > 0; i-- {
+        index := length - i;
+        result += fmt.Sprint(i, ". ", words[index], "\n");
+	}
+	
+    fmt.Println(result)
+}
 func main() {
-	letters = "abcdefg"
-	loadValidWords()
-	sortWords()
-	fmt.Println(strings.Join(words[:], "\n"))
+    fmt.Print("Letters: )
+    letters = fmt.Scanln()
+    loadValidWords()
+    sortWords()
+    displayWords()
+    fmt.scanLn()
 }
