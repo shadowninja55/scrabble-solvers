@@ -6,7 +6,7 @@ To use, put the code file in the same directory as dictionary.txt and (compile t
 # Speeds
 All tests were an average of 10 trials with the letters "abcdefg" used.
 
-1. Golang - `0.046 seconds`
+1. Go - `0.046 seconds`
 
 2. C++ - `0.050 seconds`
   
