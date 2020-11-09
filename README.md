@@ -6,11 +6,11 @@ To use, put the code file in the same directory as dictionary.txt and (compile?)
 # Speeds
 All tests were an average of 10 trials with the letters "abcdefg" used.
 
-1. Go - `0.046 seconds`
+1. Nim - `0.036 seconds`
 
-2. C++ - `0.050 seconds`
+2. Go - `0.046 seconds`
 
-3. Nim - `0.081 seconds`
+3. C++ - `0.050 seconds`
   
 4. PHP - `0.099 seconds`
   
