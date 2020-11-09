@@ -16,10 +16,12 @@ class Solver {
     }
 
     static void GenerateWords() {
-        string[] lines = File.ReadAllLines("dictionary.txt");
-        foreach (var word in lines) {
-            if (Valid(word, letters)) {
-                words.Add(word);
+        StreamReader file = new StreamReader("dictionary.txt");
+        string line;
+
+        while ((line = file.ReadLine()) != null) {
+            if (Valid(line, letters)) {
+                words.Add(line);
             }
         }
     }
