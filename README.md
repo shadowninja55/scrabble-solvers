@@ -18,13 +18,15 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 6. Julia - `0.109 seconds`
 
-7. Cython - `0.193 seconds`
+7. C# - `0.167 seconds`
 
-8. Node.js - `0.206 seconds`
+8. Cython - `0.193 seconds`
 
-9. Python - `0.249 seconds`
+9. Node.js - `0.206 seconds`
 
-10. Ruby - `0.303 seconds`
+10. Python - `0.249 seconds`
+
+11. Ruby - `0.303 seconds`
 
 
 
