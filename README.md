@@ -14,6 +14,8 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
   
 4. Java - `0.102 seconds`
 
+5. Julia - `0.109 seconds`
+
 5. Cython - `0.193 seconds`
 
 6. Node.js - `0.206 seconds`
