@@ -10,7 +10,7 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 2. C++ - `0.050 seconds`
 
-3. Nim - `0.086 seconds`
+3. Nim - `0.081 seconds`
   
 4. PHP - `0.099 seconds`
   
