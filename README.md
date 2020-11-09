@@ -16,9 +16,9 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
   
 5. Java - `0.102 seconds`
 
-6. Julia - `0.109 seconds`
+6. C# - `0.106 seconds`
 
-7. C# - `0.116 seconds`
+7. Julia - `0.109 seconds`
 
 8. Cython - `0.193 seconds`
 
