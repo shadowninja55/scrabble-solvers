@@ -53,7 +53,7 @@ class Solver {
     static void DisplayWords() {
         for (int i = words.Count; i > 0; i--) {
             int index = words.Count - i;
-            Console.WriteLine(i + ". " + words[index]);
+            Console.WriteLine(String.Format("{0}. {1}", i, words[index]));
         }
     }
 
