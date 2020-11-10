@@ -18,15 +18,13 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
   
 6. PHP - `0.099 seconds`
 
-7. Cython - `0.193 seconds`
+7. Python - `0.123 seconds`
 
 8. Node.js - `0.206 seconds`
 
-9. Python - `0.249 seconds`
+9. Java - `0.250 seconds`
 
-10. Java - `0.250 seconds`
-
-11. Ruby - `0.303 seconds`
+10. Ruby - `0.303 seconds`
 
 
 
