@@ -12,19 +12,19 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 3. Go - `0.028 seconds`
 
-4. Julia - `0.069 seconds`
+4. C# - `0.051 seconds`
+
+5. Julia - `0.069 seconds`
   
-5. PHP - `0.099 seconds`
-  
-6. Java - `0.102 seconds`
+6. PHP - `0.099 seconds`
 
-7. C# - `0.106 seconds`
+7. Cython - `0.193 seconds`
 
-8. Cython - `0.193 seconds`
+8. Node.js - `0.206 seconds`
 
-9. Node.js - `0.206 seconds`
+9. Python - `0.249 seconds`
 
-10. Python - `0.249 seconds`
+10. Java - `0.250 seconds`
 
 11. Ruby - `0.303 seconds`
 
