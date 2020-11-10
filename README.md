@@ -20,7 +20,7 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 7. Python - `0.123 seconds`
 
-8. Node.js - `0.206 seconds`
+8. Node.js - `0.146 seconds`
 
 9. Rust - `0.231 seconds`
 
