@@ -11,14 +11,14 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 2. C++ - `0.023 seconds`
 
 3. Go - `0.028 seconds`
-  
-4. PHP - `0.099 seconds`
-  
-5. Java - `0.102 seconds`
 
-6. C# - `0.106 seconds`
+4. Julia - `0.069 seconds`
+  
+5. PHP - `0.099 seconds`
+  
+6. Java - `0.102 seconds`
 
-7. Julia - `0.109 seconds`
+7. C# - `0.106 seconds`
 
 8. Cython - `0.193 seconds`
 
