@@ -1,34 +1,30 @@
 const fs = require('fs');
-const prompt = require('prompt-sync')();
+
+var letters = "abcdefg";
+var words = [];
 
 function count(word, letter) {
     return word.split(letter).length - 1;
 }
 
-function valid(word, letters) {
-    let c;
-    for (let i = 0; i < word.length; i++) {
-        c = word[i];
-        if (count(word, c) > count(letters, c)) {
+function valid(word) {
+    for (letter of word) {
+        if (count(word, letter) > count(letters, letter)) {
             return false;
         }
     }
+
     return true;
 }
 
-function generateWords(letters) {
-    let words = [];
-    let word;
-
+function generateWords() {
     let dictionary = fs.readFileSync('dictionary.txt').toString().split('\r\n');
-    for (let i = 0; i < dictionary.length; i++) {
-        word = dictionary[i];
-        if (valid(word, letters)) {
+
+    for (word of dictionary) {
+        if (valid(word)) {
             words.push(word);
         }
     }
-
-    return words;
 }
 
 const scores = {
@@ -50,26 +46,21 @@ function score(word) {
     return score;
 }
 
-function sorted(words) {
-    return words.sort((first, second) => score(first) - score(second));
+function sortWords() {
+    words.sort((first, second) => score(first) - score(second));
 }
 
-function display(words) {
-    let result = "";
-
+function displayWords() {
     for (let i = words.length; i > 0; i--) {
         let index = words.length - i;
-        result += (i + ". " + words[index] + "\n");
+        console.log(i + ". " + words[index]);
     }
-    return result;
 }
 
 function main() {
-    let letters = prompt('Letters: ');
-    let words = generateWords(letters);
-    words = sorted(words);
-    let result = display(words);
-    console.log(result);
+    generateWords();
+    sortWords();
+    displayWords();
 }
 
 main()
