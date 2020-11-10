@@ -8,7 +8,7 @@ var words: seq[string] = @[]
 
 proc isValid(word: string): bool =
     for letter in word:
-        if count(word, letter) > count(letters, letter):
+        if word.count(letter) > letters.count(letter):
             return false
     
     return true
@@ -43,8 +43,7 @@ proc displayWords() =
     let length = len(words)
 
     for i in countdown(length, 1):
-        let index = length - i
-        echo &"{i}. {words[index]}"
+        echo &"{i}. {words[^i]}"
 
 loadValidWords()
 sortWords()
