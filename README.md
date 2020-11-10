@@ -22,9 +22,11 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 8. Node.js - `0.206 seconds`
 
-9. Java - `0.250 seconds`
+9. Rust - `0.231 seconds`
 
-10. Ruby - `0.303 seconds`
+10. Java - `0.250 seconds`
+
+11. Ruby - `0.303 seconds`
 
 
 
