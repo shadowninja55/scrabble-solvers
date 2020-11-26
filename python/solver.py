@@ -22,23 +22,14 @@ scores = {
 def score(word):
     return sum(scores[c] for c in word)
 
-def sort(words, letters):
-    return sorted(words, key=score)
-
 def display(words):
-    result = ''
-
-    for i in reversed(range(1, len(words) + 1)):
-        index = len(words) - i
-        result += f'{i}. {words[index]}\n'
-
-    return result
+    for i, word in enumerate(reversed(words), 1):
+        print(f"{i}. {words[index]}")
 
 def main():
     letters = input('Letters: ')
     words = generate_words(letters)
-    words = sort(words, letters)
-    result = display(words)
-    print(result)
+    words.sort(key=score)
+    display(words)
 
 main()
