@@ -19,8 +19,8 @@ def score(word):
 
 def display_words():
     length = len(words)
-    for i in reversed(range(1, length + 1)):
-        print(f'{i}. {words[length - i]}')
+    for i, word in enumerate(words):
+        print(f'{length - i}. {word}')
 
 letters = "abcdefg"
 words = []
