@@ -1,7 +1,5 @@
 # scrabble-solvers
-An assortment of Scrabble solvers from different programming languages / extensions.
-
-To use, put the code file in the same directory as dictionary.txt and (compile?) then run the program.
+An assortment of Scrabble solvers from different programming languages.
 
 # Speeds
 All tests were an average of 10 trials with the letters "abcdefg" used.
