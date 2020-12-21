@@ -4,6 +4,7 @@ extern crate lazy_static;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::collections::HashMap;
+use std::time::Instant;
 
 fn is_valid(word: &str) -> bool {
    for c in word.chars() {
@@ -56,17 +57,25 @@ fn score(word: &str) -> u32 {
     return total;
 }
 
-fn display_words(words: Vec<String>) {
+fn sort_words(words: &mut Vec<String>) {
+    words.sort_by(|a, b| score(a).cmp(&score(b)));
+}
+
+fn display_words(words: &Vec<String>) {
     let length = words.len();
 
-    for i in (1..length+1).rev() {
+    for i in (1..length + 1).rev() {
         let index = length - i;
         println!("{}. {}", i, words[index]);
     }
 }
 
 fn main() {
+    let start = Instant::now();
+
     let mut words = load_valid_words();
-    words.sort_by(|a, b| score(a).cmp(&score(b)));
-    display_words(words);
+    sort_words(&mut words);
+    display_words(&words);
+
+    println!("{}", start.elapsed().as_millis());
 }
