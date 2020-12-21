@@ -2,29 +2,35 @@ import java.util.*;
 import java.io.*;
 
 class Solver {
+    static String letters;
+
     static int count(String word, char letter) {
-        String character = Character.toString(letter);
-        return word.length() - word.replaceAll(character, "").length();
+        return (int) word.chars().filter(c -> c == letter).count();
     }
 
-    static boolean valid(String word, String letters) {
+    static boolean valid(String word) {
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
+
             if (count(word, c) > count(letters, c)) {
                 return false;
             }
         }
+
         return true;
     }
 
-    static ArrayList<String> generateWords(String letters) {
-        ArrayList<String> words = new ArrayList<String>();
+    static List<String> generateWords() {
+        List<String> words = new ArrayList<>();
+
         try (BufferedReader reader = new BufferedReader(new FileReader("dictionary.txt"))) {
             String line = reader.readLine();
+
             while (line != null) {
-                if (valid(line, letters)) {
+                if (valid(line)) {
                     words.add(line);
                 }
+
                 line = reader.readLine();
             }
             reader.close();
@@ -35,61 +41,53 @@ class Solver {
         return words;
     }
 
-    static HashMap<Character, Integer> scores = new HashMap<Character, Integer>();
-
-    static void constructScores() {
-        String letters = "abcdefghijklmnopqrstuvwxyz";
-        int values[] = {
-            1, 3, 3, 2, 1, 4,
-            2, 4, 1, 8, 5, 1,
-            3, 1, 1, 3, 10, 1,
-            1, 1, 1, 4, 4, 8,
-            4, 10
-        };
-        for (int i = 0; i < 26; i++) {
-            scores.put(letters.charAt(i), values[i]);
-        }
-    }
+    static Map<Character, Integer> scores = new HashMap<Character, Integer>() {{
+        put('a', 1); put('b', 3); put('c', 3); put('d', 2);
+        put('e', 1); put('f', 4); put('g', 2); put('h', 4);
+        put('i', 1); put('j', 8); put('k', 5); put('l', 1);
+        put('m', 3); put('n', 1); put('o', 1); put('p', 3);
+        put('q', 10); put('r', 1); put('s', 1); put('t', 1);
+        put('u', 1); put('v', 4); put('w', 4); put('x', 8);
+        put('y', 4); put('z', 10);
+    }};
 
     static int score(String word) {
-        int total = 0;
+        int result = 0;
+
         for (int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
-            total += scores.get(c);
+            result += scores.get(word.charAt(i));
         }
 
-        return total;
+        return result;
     }
 
-    static ArrayList<String> sorted(ArrayList<String> words) {
+    static List<String> sortWords(List<String> words) {
         words.sort(new Comparator<String>() {
             @Override
             public int compare(String first, String second) {
                 return score(first) - score(second);
             }
         });
+
         return words;
     }
 
-    static String display(ArrayList<String> words) {
-        String result = "";
-        int index;
+    static void displayWords(List<String> words) {
+        int length = words.size();
 
-        for (int i = words.size(); i > 0; i--) {
-            index = words.size() - i;
-            result += (i + ". " + words.get(index) + "\n");
+        for (int i = length; i > 0; i--) {
+            System.out.println(i + ". " + words.get(length - i));
         }
-        return result;
     }
 
     public static void main(String args[]) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Letters: ");
-        String letters = input.nextLine();
-        ArrayList<String> words = generateWords(letters);
-        constructScores();
-        words = sorted(words);
-        String result = display(words);
-        System.out.println(result);
+        long start = System.currentTimeMillis();
+
+        letters = "abcdefg";
+        List<String> words = generateWords();
+        words = sortWords(words);
+        displayWords(words);
+
+        System.out.println(System.currentTimeMillis() - start);
     }
 }
