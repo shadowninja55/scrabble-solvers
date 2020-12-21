@@ -1,7 +1,7 @@
 # scrabble-solvers
 An assortment of Scrabble solvers from different programming languages.
 
-# Speeds
+# speeds
 All tests were an average of 10 trials with the letters "abcdefg" used.
 
 1. Nim - `0.018 seconds`
