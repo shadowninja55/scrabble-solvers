@@ -1,12 +1,8 @@
 [package]
-name = "ScrabbleSolver"
+name = "scrabble_solver"
 version = "0.0.1"
 authors = ["shadow."]
 edition = "2018"
 
 [dependencies]
 lazy_static = "1.4.0"
-
-[[bin]]
-name = "solver"
-path = "solver.rs"
