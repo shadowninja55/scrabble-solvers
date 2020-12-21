@@ -61,7 +61,6 @@ function display($words) {
 }
 
 function main() {
-    echo "\n";
     $letters = "abcdefg"; // readline("Letters: ");
     $words = generate_words($letters);
     $words = sorted($words);
