@@ -1,6 +1,5 @@
 const std = @import("std");
 const print = std.debug.print;
-// var gpa = std.heap.GeneralPurposeAllocator(.{}){};
 var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
 const allocator = &arena.allocator;
 const letters: []const u8 = "abcdefg";
