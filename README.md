@@ -10,7 +10,7 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 3. Rust - `0.012 seconds`
 
-4. C++ - `0.023 seconds`
+4. C++ - `0.021 seconds`
 
 5. Go - `0.028 seconds`
 
