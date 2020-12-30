@@ -1,81 +1,55 @@
-#[macro_use]
-extern crate lazy_static;
-
-use std::fs::File;
-use std::io::{BufRead, BufReader};
-use std::collections::HashMap;
+use std::fs::read_to_string;
 use std::time::Instant;
 
-fn is_valid(word: &str) -> bool {
-   for c in word.chars() {
-       if word.matches(c).count() > LETTERS.matches(c).count() {
-           return false;
-       }
-   }
+static LETTERS: &str = "abcdefg";
 
-   return true;
+fn is_valid(word: &str) -> bool {
+  for c in word.chars() {
+    if word.matches(c).count() > LETTERS.matches(c).count() {
+      return false;
+    }
+  }
+
+  true
 }
 
 fn load_valid_words() -> Vec<String> {
-    let mut words: Vec<String> = vec![];
+  let content = read_to_string("dictionary.txt").unwrap();
 
-    let file = File::open("dictionary.txt").unwrap();
-    let reader = BufReader::new(file);
-
-    for line in reader.lines() {
-        let word = line.unwrap();
-
-        if is_valid(&word) {
-            words.push(word);
-        }
-    }
-
-    return words;
+  content.split("\r\n").filter(
+    |word| is_valid(word)
+  ).map(
+    |word| word.to_string()
+  ).collect()
 }
 
-lazy_static! {
-    static ref SCORES: HashMap<char, u32> = [
-        ('a', 1) , ('b', 3) , ('c', 3), ('d', 2),
-        ('e', 1) , ('f', 4) , ('g', 2), ('h', 4),
-        ('i', 1) , ('j', 8) , ('k', 5), ('l', 1),
-        ('m', 3) , ('n', 1) , ('o', 1), ('p', 3),
-        ('q', 10), ('r', 1) , ('s', 1), ('t', 1),
-        ('u', 1) , ('v', 4) , ('w', 4), ('x', 8),
-        ('y', 4) , ('z', 10)
-    ].iter().cloned().collect();
+static SCORES: [u8; 26] = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 
+  10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
 
-    static ref LETTERS: String = String::from("abcdefg");
-}
-
-fn score(word: &str) -> u32 {
-    let mut total = 0;
-
-    for c in word.chars() {
-        total += SCORES.get(&c).unwrap();
-    }
-
-    return total;
+fn score(word: &str) -> u8 {
+  word.chars().map(
+    |c| SCORES[c as usize - 97]
+  ).sum()
 }
 
 fn sort_words(words: &mut Vec<String>) {
-    words.sort_by(|a, b| score(a).cmp(&score(b)));
+  words.sort_by(
+    |a, b| score(a).cmp(&score(b))
+  );
 }
 
 fn display_words(words: &Vec<String>) {
-    let length = words.len();
-
-    for i in (1..length + 1).rev() {
-        let index = length - i;
-        println!("{}. {}", i, words[index]);
-    }
+  for i in (1..words.len() + 1).rev() {
+    println!("{}. {}", i, words[words.len() - i]);
+  }
 }
 
 fn main() {
-    let start = Instant::now();
+  let start = Instant::now();
 
-    let mut words = load_valid_words();
-    sort_words(&mut words);
-    display_words(&words);
+  let mut words = load_valid_words();
+  sort_words(&mut words);
+  display_words(&words);
 
-    println!("{}", start.elapsed().as_millis());
+  println!("{}", start.elapsed().as_millis());
 }

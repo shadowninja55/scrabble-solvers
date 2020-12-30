@@ -39,6 +39,7 @@ const scores = {
 
 function score(word) {
     let score = 0;
+    
     for (let i = 0; i < word.length; i++) {
         score += scores[word[i]];
     }

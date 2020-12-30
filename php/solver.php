@@ -14,6 +14,7 @@ function generate_words($letters) {
 
     $text = file_get_contents('dictionary.txt');
     $dictionary = explode("\r\n", $text);
+
     foreach ($dictionary as $word) {
         if (valid($word, $letters)) {
             array_push($words, $word);
@@ -61,7 +62,7 @@ function display($words) {
 }
 
 function main() {
-    $letters = "abcdefg"; // readline("Letters: ");
+    $letters = "abcdefg";
     $words = generate_words($letters);
     $words = sorted($words);
     $result = display($words);
