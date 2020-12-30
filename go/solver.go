@@ -54,7 +54,7 @@ func sortWords() {
 
 func displayWords() {
   for i := len(words); i > 0; i-- {
-    fmt.Print(i, ". ", words[len(words) - i], "\n");
+    fmt.Println(i, ". ", words[len(words) - i]);
 	}
 }
 func main() {
