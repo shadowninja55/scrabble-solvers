@@ -31,7 +31,7 @@ void load_valid_words(struct Vector* words) {
   char buffer[9];
 
   while (fgets(buffer, sizeof(buffer), file)) {
-    buffer[strlen(buffer) - 1] = 0;
+    buffer[strcspn(buffer, "\r\n")] = 0;
     
     if (is_valid(buffer)) {
       char* word = strdup(buffer);
