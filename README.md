@@ -10,23 +10,25 @@ All tests were an average of 10 trials with the letters "abcdefg" used.
 
 3. Rust - `0.012 seconds`
 
-4. C++ - `0.021 seconds`
+4. C - `0.018 seconds`
 
-5. Go - `0.028 seconds`
+5. C++ - `0.021 seconds`
 
-6. C# - `0.051 seconds`
+6. Go - `0.028 seconds`
 
-7. Julia - `0.069 seconds`
+7. C# - `0.051 seconds`
+
+8. Julia - `0.069 seconds`
   
-8. PHP - `0.099 seconds`
+9 PHP - `0.099 seconds`
 
-9. Python - `0.123 seconds`
+10. Python - `0.123 seconds`
 
-10. Java - `0.130 seconds`
+11. Java - `0.130 seconds`
 
-11. Ruby - `0.127 seconds`
+12. Ruby - `0.127 seconds`
 
-12. Node.js - `0.146 seconds`
+13. Node.js - `0.146 seconds`
 
 
 

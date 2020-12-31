@@ -15,11 +15,8 @@ class Solver {
         return true;
     }
 
-    static void GenerateWords() {
-        StreamReader file = new StreamReader("dictionary.txt");
-        string line;
-
-        while ((line = file.ReadLine()) != null) {
+    static void GenerateWords() { 
+        foreach (string line in File.ReadLines("dictionary.txt"))
             if (Valid(line, letters)) {
                 words.Add(line);
             }
