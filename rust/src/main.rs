@@ -1,5 +1,4 @@
 use std::fs::read_to_string;
-use std::time::Instant;
 
 static LETTERS: &str = "abcdefg";
 
@@ -45,11 +44,7 @@ fn display_words(words: &Vec<String>) {
 }
 
 fn main() {
-  let start = Instant::now();
-
   let mut words = load_valid_words();
   sort_words(&mut words);
   display_words(&words);
-
-  println!("{}", start.elapsed().as_millis());
 }

@@ -30,7 +30,6 @@ proc displayWords(words: seq[string]) =
   for i in countdown(words.len, 1):
     echo &"{i}. {words[^i]}"
 
-echo timeGo do:
-  var words = loadValidWords()
-  sortWords words
-  displayWords words
+var words = loadValidWords()
+sortWords words
+displayWords words
