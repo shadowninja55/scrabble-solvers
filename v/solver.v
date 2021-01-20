@@ -51,11 +51,7 @@ fn get_score(word string) int {
 }
 
 fn sort_words(mut words []string) {
-	words.sort_with_compare(
-		fn (a &string, b &string) int { 
-			return get_score(*a) - get_score(*b) 
-		}
-	)
+	words.sort(get_score(a) < get_score(b))
 }
 
 fn display_words(words []string) {
