@@ -73,13 +73,8 @@ fn displayWords(words: [][]const u8) void {
 }
 
 pub fn main() !void {
-  const start = std.time.milliTimestamp();
-
   var words = try loadValidWords();
   defer allocator.free(words);
   sortWords(words);
   displayWords(words);
-
-  const stop = std.time.milliTimestamp();
-  print("{}", .{stop - start});
 }

@@ -81,13 +81,9 @@ class Solver {
     }
 
     public static void main(String args[]) {
-        long start = System.currentTimeMillis();
-
         letters = "abcdefg";
         List<String> words = generateWords();
         words = sortWords(words);
         displayWords(words);
-
-        System.out.println(System.currentTimeMillis() - start);
     }
 }
