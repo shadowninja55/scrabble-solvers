@@ -44,3 +44,5 @@ function main()
     sort!(words, by=get_score)
     display_words(words)
 end
+
+main()
