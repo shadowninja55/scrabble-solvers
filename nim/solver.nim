@@ -10,7 +10,7 @@ proc isValid(word: string): bool =
   true
 
 proc loadValidWords(): seq[string] =
-  for line in readFile("dictionary.txt").split("\r\n"):
+  for line in readFile("dictionary.txt").splitLines():
     if line.isValid():
       result.add line
 
