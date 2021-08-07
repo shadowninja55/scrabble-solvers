@@ -3,35 +3,30 @@ module Main where
 import Data.Char (ord)
 import Data.List (sortOn)
 import Text.Printf (printf)
-
-count :: String -> Char -> Int
-count string char = 
-  length $ filter (== char) string
+import Data.Vector (fromList, (!))
 
 isValid :: String -> String -> Bool
-isValid word letters = 
-  all sufficient word
-    where sufficient letter = count word letter <= count letters letter
+isValid word letters = all f word
+  where 
+  f letter = count letter word <= count letter letters
+  count char = length . filter (== char)
 
-getScore :: String -> Int 
-getScore word = 
-  sum $ fmap letterScore word
-    where 
-      letterScore letter = scores !! (ord letter - 97)
-      scores = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 
-        11, 4, 4, 8, 4, 10]
+score :: String -> Int 
+score = sum . fmap f
+  where 
+  f letter = scores ! (ord letter - 97)
+  scores = fromList [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 
+    1, 11, 4, 4, 8, 4, 10]
 
-displayWords :: [String] -> String
-displayWords words =
-  unlines $ fmap displayPair (zip words [0..])
-    where
-      displayPair (word, idx) = printf "%d. %s" (len - idx) word
-      len = length words
+prettyPrint :: [String] -> String
+prettyPrint = unlines . reverse . zipWith f [(1 :: Int)..]
+  where f idx word = printf "%d. %s" idx word
+
+process :: String -> String -> String
+process letters = prettyPrint . sortOn (negate . score) . filter valid . lines
+  where valid = (`isValid` letters)
 
 main :: IO ()
 main = do
   content <- readFile "dictionary.txt"
-  let letters = "abcdefg"
-  let words = filter (`isValid` letters) (lines content)
-  let sorted = sortOn getScore words
-  putStr $ displayWords sorted
+  putStr . process "abcdefg" $ content
